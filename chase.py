@@ -125,7 +125,7 @@ class Endpoint(object):
         54 -> 5400
         """
         a = amount.split(".")
-        if len(a) > 0:
+        if len(a) > 1:
             dec = a[1]
             if len(dec) == 1:
                 dec = dec + "0"
