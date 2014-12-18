@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Request>
+  <NewOrder>
+    <OrbitalConnectionUsername></OrbitalConnectionUsername>
+    <OrbitalConnectionPassword></OrbitalConnectionPassword>
+    <IndustryType>EC</IndustryType>
+    <MessageType>AC</MessageType>
+    <BIN>000002</BIN>
+    <MerchantID></MerchantID>
+    <TerminalID>001</TerminalID>
+    <CardBrand></CardBrand>
+    <AccountNum></AccountNum>
+    <Exp></Exp>
+    <CurrencyCode>840</CurrencyCode>
+    <CurrencyExponent>2</CurrencyExponent>
+    <CardSecValInd/>
+    <CardSecVal/>
+    <AVSzip></AVSzip>
+    <AVSaddress1></AVSaddress1>
+    <AVSaddress2></AVSaddress2>
+    <AVScity></AVScity>
+    <AVSstate></AVSstate>
+    <AVSphoneNum></AVSphoneNum>
+    <CustomerProfileFromOrderInd/>
+    <CustomerRefNum></CustomerRefNum>
+    <CustomerProfileOrderOverrideInd/>
+    <PriorAuthID/>
+    <OrderID></OrderID>
+    <Amount></Amount>
+    <TxRefNum/>
+  </NewOrder>
+</Request>

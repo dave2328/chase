@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Request>
+  <Reversal>
+    <OrbitalConnectionUsername></OrbitalConnectionUsername>
+    <OrbitalConnectionPassword></OrbitalConnectionPassword>
+    <TxRefNum></TxRefNum>
+    <TxRefIdx></TxRefIdx>
+    <AdjustedAmt/>
+    <OrderID></OrderID>
+    <BIN>000002</BIN>
+    <MerchantID></MerchantID>
+    <TerminalID>001</TerminalID>
+    <OnlineReversalInd/>
+  </Reversal>
+</Request>

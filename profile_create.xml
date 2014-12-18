@@ -1,0 +1,25 @@
+<Request>
+  <Profile>
+    <OrbitalConnectionUsername></OrbitalConnectionUsername>
+    <OrbitalConnectionPassword></OrbitalConnectionPassword>
+    <CustomerBin>000002</CustomerBin>
+    <CustomerMerchantID></CustomerMerchantID>
+    <CustomerName></CustomerName>
+    <CustomerRefNum></CustomerRefNum>
+    <CustomerAddress1></CustomerAddress1>
+    <CustomerAddress2></CustomerAddress2>
+    <CustomerCity></CustomerCity>
+    <CustomerState></CustomerState>
+    <CustomerZIP></CustomerZIP>
+    <CustomerEmail></CustomerEmail>
+    <CustomerPhone></CustomerPhone>
+    <CustomerCountryCode>US</CustomerCountryCode>
+    <CustomerProfileAction>C</CustomerProfileAction>
+    <CustomerProfileOrderOverrideInd>NO</CustomerProfileOrderOverrideInd>
+    <CustomerProfileFromOrderInd>A</CustomerProfileFromOrderInd>
+    <CustomerAccountType>CC</CustomerAccountType>
+    <Status>A</Status>
+    <CCAccountNum></CCAccountNum>
+    <CCExpireDate></CCExpireDate>
+  </Profile>
+</Request>

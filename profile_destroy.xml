@@ -1,0 +1,10 @@
+<Request>
+  <Profile>
+    <OrbitalConnectionUsername></OrbitalConnectionUsername>
+    <OrbitalConnectionPassword></OrbitalConnectionPassword>
+    <CustomerBin>000002</CustomerBin>
+    <CustomerMerchantID></CustomerMerchantID>
+    <CustomerRefNum></CustomerRefNum>
+    <CustomerProfileAction>D</CustomerProfileAction>
+  </Profile>
+</Request>
