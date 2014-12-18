@@ -26,8 +26,7 @@ TEST_ENDPOINT_URL_2 = "https://orbitalvar2.paymentech.net"
 ENDPOINT_URL_1 = "https://orbital1.paymentech.net"
 ENDPOINT_URL_2 = "https://orbital2.paymentech.net"
 
-#CURRENT_DTD_VERSION = "PTI62"
-CURRENT_DTD_VERSION = "PTI58"
+CURRENT_DTD_VERSION = "PTI62"
 
 valid_credit_pattern = re.compile("""
     ^(?:4[0-9]{12}(?:[0-9]{3})?          # Visa
@@ -95,8 +94,8 @@ class Endpoint(object):
             'Request-number':"1",
             'Document-type':"Request",
             'Trace-number':self.trace_number,
-            'Interface-Version':"MooreBro 1.1",
-            'MerchantID':self.merchant_id,
+            'Interface-Version':"MooreBro 1.01",
+            'MerchantID':str(self.merchant_id),
         }
 
     def make_request(self, xml):
