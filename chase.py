@@ -4,6 +4,7 @@ import xml.etree.ElementTree as ET
 import requests
 import re
 import unicodedata
+from time import sleep
 
 PROCSTATUS_INVALID_RETRY_TRACE = '9714'
 PROCSTATUS_USER_NOT_FOUND = '9581'
@@ -108,15 +109,19 @@ class Endpoint(object):
                 if result != None and result.text != None:
                     return result.text
             except:
-                return result.text
+                pass
+            #sleep for 250 ms
+            sleep(0.25)
             try:
                 if result == None or result.text == None:
                     result = requests.post(self.url2, data=xml, headers=self.headers)
                 if result != None and result.text != None:
                     return result.text
             except:
-                return result.text
-        return None
+                pass
+            #sleep for 250 ms
+            sleep(0.25)
+        return "Could not communicate with Chase"
 
     def convert_amount(self, amount):
         """ 
