@@ -2,8 +2,6 @@ import collections
 from chase import Profile, Order, MarkForCapture, Reversal
 
 MERCHANT_ID = 'TEST'
-#MERCHANT_ID = "720000294310"
-#MERCHANT_ID = "720000301804"
 
 def parse_result(step, result):
     parsed = '%s:' % step
