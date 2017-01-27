@@ -266,8 +266,8 @@ class Profile(Endpoint):
             'CustomerRefNum': self.ident
         }
         self.xml = self.parse_xml("profile_read.xml", values)
-        result = self.make_request(self.xml)
-        return self.parse_result(result)
+        self._result = self.make_request(self.xml)
+        return self.parse_result(self._result)
 
     def update(self):
         self.sanitize()
@@ -286,8 +286,8 @@ class Profile(Endpoint):
             'CCExpireDate': self.cc_expiry,
         }
         self.xml = self.parse_xml("profile_update.xml", values)
-        result = self.make_request(self.xml)
-        return self.parse_result(result)
+        self._result = self.make_request(self.xml)
+        return self.parse_result(self._result)
 
     def destroy(self):
         values = {
@@ -295,8 +295,8 @@ class Profile(Endpoint):
             'CustomerRefNum': self.ident,
         }
         self.xml = self.parse_xml("profile_destroy.xml", values)
-        result = self.make_request(self.xml)
-        return self.parse_result(result)
+        self._result = self.make_request(self.xml)
+        return self.parse_result(self._result)
 
 
 class Order(Endpoint):
@@ -398,8 +398,8 @@ class Order(Endpoint):
             pass
 
         xml = self.parse_xml("order_new.xml", values)
-        result = self.make_request(xml)
-        return self.parse_result(result)
+        self._result = self.make_request(xml)
+        return self.parse_result(self._result)
 
     def authorize(self):
         self.message_type = 'A'
@@ -433,8 +433,8 @@ class MarkForCapture(Endpoint):
             'TxRefNum': self.tx_ref_num,
         }
         xml = self.parse_xml("mark_for_capture.xml", values)
-        result = self.make_request(xml)
-        return self.parse_result(result)
+        self._result = self.make_request(xml)
+        return self.parse_result(self._result)
 
 
 class Reversal(Endpoint):
@@ -459,8 +459,8 @@ class Reversal(Endpoint):
         if self.amount:
             values['AdjustedAmt'] = self.convert_amount(self.amount)
         xml = self.parse_xml("reversal.xml", values)
-        result = self.make_request(xml)
-        return self.parse_result(result)
+        self._result = self.make_request(xml)
+        return self.parse_result(self._result)
 
     def void(self):
         values = {
@@ -472,5 +472,5 @@ class Reversal(Endpoint):
         if self.amount:
             values['AdjustedAmt'] = self.convert_amount(self.amount)
         xml = self.parse_xml("reversal.xml", values)
-        result = self.make_request(xml)
-        return self.parse_result(result)
+        self._result = self.make_request(xml)
+        return self.parse_result(self._result)
