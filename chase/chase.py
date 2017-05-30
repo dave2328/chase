@@ -334,8 +334,9 @@ class Order(Endpoint):
         self.message_type = kwargs.get('message_type')  # <MessageType>
         self.cc_num = kwargs.get('cc_num')  # <AccountNum>
         self.cc_expiry = kwargs.get('cc_expiry')  # <Exp>
-        self.cvd_indicator = kwargs.get('cvd_indicator')  # <CardSecValInd>
-        self.cvd = kwargs.get('cvd')  # <CardSecVal>
+        self.cvv_indicator = kwargs.get('cvv_indicator') or \
+            kwargs.get('cvd_indicator')  # <CardSecValInd>
+        self.cvv = kwargs.get('cvv') or kwargs.get('cvd')  # <CardSecVal>
         self.customer_num = kwargs.get('customer_num')  # <CustomerRefNum>
         self.order_id = kwargs.get('order_id')  # <OrderID>
         self.amount = kwargs.get('amount')  # <Amount>
@@ -377,10 +378,10 @@ class Order(Endpoint):
         9     Cardholder states data not available
         Null if not Visa/Discover
         """
-        if not self.cvd:
+        if not self.cvv:
             return None
-        if self.cvd_indicator:
-            return self.cvd_indicator
+        if self.cvv_indicator:
+            return self.cvv_indicator
         # Quick check for card type
         if self.card_type(self.cc_num) in ('Visa', 'Discover'):
             if self.cc_expiry and len(self.cc_expiry) > 0:
@@ -397,7 +398,7 @@ class Order(Endpoint):
             'AccountNum': self.cc_num,
             'Exp': self.cc_expiry,
             'CardSecValInd': self.card_sec_val_ind(),
-            'CardSecVal': self.cvd,
+            'CardSecVal': self.cvv,
             'OrderID': self.order_id,
             'Amount': self.convert_amount(self.amount),
             'CustomerRefNum': self.customer_num,
