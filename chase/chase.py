@@ -105,7 +105,7 @@ class Endpoint(object):
             'Request-number': "1",
             'Document-type': "Request",
             'Trace-number': self.trace_number,
-            'Interface-Version': "MooreBro 1.01",
+            'Interface-Version': "MooreBro 1.1.0",
             'MerchantID': str(self.merchant_id),
         }
         # there are 2 platform options defined in the orbital gateway chase
@@ -123,32 +123,22 @@ class Endpoint(object):
 
     def make_request(self, xml):
         result = None
-        for i in range(3):
-            if result is not None and result.text is not None:
-                return result.text
-            try:
-                result = requests.post(
-                    self.url,
-                    data=xml,
-                    headers=self.headers)
+        # try the first url endpoint, then if there's no success, go to the second
+        for url in [self.url, self.url2]:
+            for i in range(3):
                 if result is not None and result.text is not None:
                     return result.text
-            except:
-                pass
-            # sleep for 250 ms
-            sleep(0.25)
-            try:
-                if result is None or result.text is None:
+                try:
                     result = requests.post(
-                        self.url2,
+                        url,
                         data=xml,
                         headers=self.headers)
-                if result is not None and result.text is not None:
-                    return result.text
-            except:
-                pass
-            # sleep for 250 ms
-            sleep(0.25)
+                    if result is not None and result.text is not None:
+                        return result.text
+                except:
+                    pass
+                # sleep for 250 ms to avoid rate limiting
+                sleep(0.25)
         return "Could not communicate with Chase"
 
     def convert_amount(self, amount):
