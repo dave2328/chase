@@ -2,9 +2,9 @@ import os
 import unittest
 from chase import Profile, Order, Reversal
 
-merchant_id = os.environ.get('TEST_MERCHANT_ID')
-username = os.environ.get('TEST_USERNAME')
-password = os.environ.get('TEST_PASSWORD')
+merchant_id = os.environ.get('TEST_ORBITAL_MERCHANT_ID')
+username = os.environ.get('TEST_ORBITAL_USERNAME')
+password = os.environ.get('TEST_ORBITAL_PASSWORD')
 
 def new_profile():
     profile = Profile(

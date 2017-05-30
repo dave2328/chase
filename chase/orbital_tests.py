@@ -1,7 +1,10 @@
+import os
 import collections
 from chase import Profile, Order, MarkForCapture, Reversal
 
-MERCHANT_ID = 'TEST'
+merchant_id = os.environ.get('TEST_ORBITAL_MERCHANT_ID')
+username = os.environ.get('TEST_ORBITAL_USERNAME')
+password = os.environ.get('TEST_ORBITAL_PASSWORD')
 
 def parse_result(step, result):
     parsed = '%s:' % step
@@ -22,7 +25,9 @@ def section_a():
     results = collections.OrderedDict()
     results['section'] = 'a'
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='4788250000028291',
                   order_id='101',
@@ -42,7 +47,9 @@ def section_a():
                             order_id=order.order_id)
         results['1b'] = reversal.reversal()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='4788250000028291',
                   order_id='102',
@@ -52,7 +59,9 @@ def section_a():
                   amount='38.01')
     results['2'] = order.charge()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='4788250000028291',
                   order_id='103',
@@ -70,7 +79,9 @@ def section_a():
                                  tx_ref_num=tx_ref_num)
         results['3b'] = capture.request()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='4788250000028291',
                   order_id='104',
@@ -82,7 +93,9 @@ def section_a():
     #tx_ref_num = result['TxRefNum']
     #tx_ref_idx = result['TxRefIdx']
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='4788250000028291',
                   order_id='105',
@@ -100,7 +113,9 @@ def section_a():
                                  tx_ref_num=tx_ref_num)
         results['5b'] = capture.request()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='5454545454545454',
                   order_id='106',
@@ -117,7 +132,9 @@ def section_a():
                             order_id=order.order_id)
         results['6b'] = reversal.reversal()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='5454545454545454',
                   order_id='107',
@@ -127,7 +144,9 @@ def section_a():
                   amount='11.02')
     results['7'] = order.charge()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='5454545454545454',
                   order_id='108',
@@ -144,7 +163,9 @@ def section_a():
                                  tx_ref_num=tx_ref_num)
         results['8b'] = capture.request()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='5454545454545454',
                   order_id='109',
@@ -161,7 +182,9 @@ def section_a():
                                  tx_ref_num=tx_ref_num)
         results['9b'] = capture.request()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='5454545454545454',
                   order_id='110',
@@ -170,7 +193,9 @@ def section_a():
                   amount='0.00')
     results['10'] = order.charge()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='371449635398431',
                   order_id='111',
@@ -186,7 +211,9 @@ def section_a():
                                 tx_ref_num=tx_ref_num)
         results['11b'] = capture.request()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='371449635398431',
                   order_id='112',
@@ -203,7 +230,9 @@ def section_a():
                             order_id=order.order_id)
         results['12b'] = reversal.reversal()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='371449635398431',
                   order_id='113',
@@ -220,7 +249,9 @@ def section_a():
                                 tx_ref_num=tx_ref_num)
         results['13b'] = capture.request()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='371449635398431',
                   order_id='114',
@@ -229,7 +260,9 @@ def section_a():
                   amount='0.00')
     results['14'] = order.charge()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='6011000995500000',
                   order_id='115',
@@ -245,7 +278,9 @@ def section_a():
                                 tx_ref_num=tx_ref_num)
         results['15b'] = capture.request()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='6011000995500000',
                   order_id='116',
@@ -262,7 +297,9 @@ def section_a():
                             order_id=order.order_id)
         results['16b'] = reversal.reversal()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='6011000995500000',
                   order_id='117',
@@ -272,7 +309,9 @@ def section_a():
                   amount='63.03')
     results['17'] = order.charge()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='6011000995500000',
                   order_id='118',
@@ -282,7 +321,9 @@ def section_a():
                   amount='63.03')
     results['18'] = order.charge()
 
-    order = Order(merchant_id=MERCHANT_ID,
+    order = Order(merchant_id=merchant_id,
+                  username=username,
+                  password=password,
                   message_type='A',
                   cc_num='3566002020140006',
                   order_id='119',
