@@ -193,9 +193,10 @@ class Endpoint(object):
         values['CustomerBin'] = self.get_platform_bin()
         for key, value in values.items():
             elem = root.find(".//%s" % key)
-            elem.text = value or default_value
-            if elem.text is not None:
-                elem.text = remove_control_characters(elem.text)
+            if elem:
+                elem.text = value or default_value
+                if elem.text is not None:
+                    elem.text = remove_control_characters(elem.text)
         return ET.tostring(root)
 
     def parse_result(self, result):
