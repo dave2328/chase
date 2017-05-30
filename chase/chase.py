@@ -24,9 +24,9 @@ CARD_TYPES = [
 ]
 
 TEST_ENDPOINT_URL_1 = "https://orbitalvar1.chasepaymentech.com"
-TEST_ENDPOINT_URL_2 = "https://orbitalvar2.chasepaymentech.net"
-ENDPOINT_URL_1 = "https://orbital1.chasepaymentech.net"
-ENDPOINT_URL_2 = "https://orbital2.chasepaymentech.net"
+TEST_ENDPOINT_URL_2 = "https://orbitalvar2.chasepaymentech.com"
+ENDPOINT_URL_1 = "https://orbital1.chasepaymentech.com"
+ENDPOINT_URL_2 = "https://orbital2.chasepaymentech.com"
 
 CURRENT_DTD_VERSION = "PTI68"
 
