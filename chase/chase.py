@@ -22,12 +22,12 @@ CARD_TYPES = [
     CARD_TYPE_JCB,
 ]
 
-TEST_ENDPOINT_URL_1 = "https://orbitalvar1.paymentech.net"
-TEST_ENDPOINT_URL_2 = "https://orbitalvar2.paymentech.net"
-ENDPOINT_URL_1 = "https://orbital1.paymentech.net"
-ENDPOINT_URL_2 = "https://orbital2.paymentech.net"
+TEST_ENDPOINT_URL_1 = "https://orbitalvar1.chasepaymentech.com"
+TEST_ENDPOINT_URL_2 = "https://orbitalvar2.chasepaymentech.net"
+ENDPOINT_URL_1 = "https://orbital1.chasepaymentech.net"
+ENDPOINT_URL_2 = "https://orbital2.chasepaymentech.net"
 
-CURRENT_DTD_VERSION = "PTI62"
+CURRENT_DTD_VERSION = "PTI68"
 
 valid_credit_pattern = re.compile("""
     ^(?:4[0-9]{12}(?:[0-9]{3})?          # Visa
