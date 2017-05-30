@@ -1,10 +1,11 @@
 import os
 from uuid import uuid4
 import xml.etree.ElementTree as ET
-import requests
 import re
 import unicodedata
 from time import sleep
+
+import requests
 
 PROCSTATUS_INVALID_RETRY_TRACE = '9714'
 PROCSTATUS_USER_NOT_FOUND = '9581'
@@ -49,8 +50,8 @@ def remove_control_characters(s):
     """
     Remove unicode characters that will endanger xml parsing on Chase's end
     """
-    u = s.decode('unicode-escape')
-    return "".join(ch for ch in u if unicodedata.category(ch)[0] != "C")
+    unis = s.decode('unicode-escape')
+    return "".join(ch for ch in unis if unicodedata.category(ch)[0] != "C")
 
 
 def sanitize_address_field(s):
@@ -85,9 +86,9 @@ class Endpoint(object):
             trace_number
             production
         """
-        self.merchant_id = kwargs['merchant_id']
-        self.username = kwargs['username']
-        self.password = kwargs['password']
+        self.merchant_id = os.getenv('ORBITAL_MERCHANT_ID') or kwargs.get('merchant_id')
+        self.username = os.getenv('ORBITAL_USERNAME') or kwargs.get('username')
+        self.password = os.getenv('ORBITAL_PASSWORD') or kwargs.get('password')
         self.trace_number = kwargs.get('trace_number', str(uuid4().node))
         self.production = kwargs.get('production', False)
         if self.production:
@@ -193,7 +194,7 @@ class Endpoint(object):
         values['CustomerBin'] = self.get_platform_bin()
         for key, value in values.items():
             elem = root.find(".//%s" % key)
-            if elem:
+            if elem is not None:
                 elem.text = value or default_value
                 if elem.text is not None:
                     elem.text = remove_control_characters(elem.text)

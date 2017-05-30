@@ -7,7 +7,8 @@ username = os.environ.get('TEST_USERNAME')
 password = os.environ.get('TEST_PASSWORD')
 
 def new_profile():
-    profile = Profile(merchant_id=merchant_id, 
+    profile = Profile(
+        merchant_id=merchant_id,
         username=username,
         password=password
     )
@@ -23,17 +24,22 @@ def new_profile():
     profile.cc_expiry = "1116"
     return profile
 
+
 def new_order():
-    return Order(merchant_id=merchant_id, 
+    return Order(
+        merchant_id=merchant_id,
         username=username,
         password=password
     )
 
+
 def new_reversal():
-    return Reversal(merchant_id=merchant_id, 
+    return Reversal(
+        merchant_id=merchant_id,
         username=username,
         password=password
     )
+
 
 class TestProfileFunctions(unittest.TestCase):
 
