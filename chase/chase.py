@@ -29,6 +29,11 @@ ENDPOINT_URL_2 = "https://orbital2.chasepaymentech.net"
 
 CURRENT_DTD_VERSION = "PTI68"
 
+AUTH_PLATFORM_BIN = {
+    'salem': '000001',
+    'pns': '000002',
+}
+
 valid_credit_pattern = re.compile("""
     ^(?:4[0-9]{12}(?:[0-9]{3})?          # Visa
      |  5[1-5][0-9]{14}                  # MasterCard
@@ -102,6 +107,18 @@ class Endpoint(object):
             'Interface-Version': "MooreBro 1.01",
             'MerchantID': str(self.merchant_id),
         }
+        # there are 2 platform options defined in the orbital gateway chase
+        # Salem - BIN 000001
+        # PNS - BIN 000002
+        self.platform = kwargs.pop('platform', 'pns')
+
+    def get_platform_bin(self):
+        try:
+            return AUTH_PLATFORM_BIN[self.platform.lower()]
+
+        except KeyError:
+            raise KeyError('You have supplied an invalid platform identification,'
+                           'you can choose `Salem` (Stratus) or `PNS`')
 
     def make_request(self, xml):
         result = None
@@ -172,6 +189,8 @@ class Endpoint(object):
         root = tree.getroot()
         values['OrbitalConnectionUsername'] = self.username
         values['OrbitalConnectionPassword'] = self.password
+        values['BIN'] = self.get_platform_bin()
+        values['CustomerBin'] = self.get_platform_bin()
         for key, value in values.items():
             elem = root.find(".//%s" % key)
             elem.text = value or default_value

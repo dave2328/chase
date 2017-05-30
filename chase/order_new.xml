@@ -5,7 +5,7 @@
     <OrbitalConnectionPassword></OrbitalConnectionPassword>
     <IndustryType>EC</IndustryType>
     <MessageType>AC</MessageType>
-    <BIN>000002</BIN>
+    <BIN></BIN>
     <MerchantID></MerchantID>
     <TerminalID>001</TerminalID>
     <CardBrand></CardBrand>

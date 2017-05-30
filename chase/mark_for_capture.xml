@@ -5,7 +5,7 @@
     <OrbitalConnectionPassword></OrbitalConnectionPassword>
     <OrderID></OrderID>
     <Amount></Amount>
-    <BIN>000002</BIN>
+    <BIN></BIN>
     <MerchantID></MerchantID>
     <TerminalID>001</TerminalID>
     <TxRefNum></TxRefNum>

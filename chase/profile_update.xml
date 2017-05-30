@@ -2,7 +2,7 @@
   <Profile>
     <OrbitalConnectionUsername></OrbitalConnectionUsername>
     <OrbitalConnectionPassword></OrbitalConnectionPassword>
-    <CustomerBin>000002</CustomerBin>
+    <CustomerBin></CustomerBin>
     <CustomerMerchantID></CustomerMerchantID>
     <CustomerName></CustomerName>
     <CustomerRefNum></CustomerRefNum>
