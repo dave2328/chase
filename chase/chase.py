@@ -409,8 +409,8 @@ class Order(Endpoint):
         if self.message_type not in ['A', 'AC', 'FC', 'R']:
             pass
 
-        xml = self.parse_xml("order_new.xml", values)
-        self._result = self.make_request(xml)
+        self.xml = self.parse_xml("order_new.xml", values)
+        self._result = self.make_request(self.xml)
         return self.parse_result(self._result)
 
     def authorize(self):
@@ -444,8 +444,8 @@ class MarkForCapture(Endpoint):
             'Amount': self.convert_amount(self.amount),
             'TxRefNum': self.tx_ref_num,
         }
-        xml = self.parse_xml("mark_for_capture.xml", values)
-        self._result = self.make_request(xml)
+        self.xml = self.parse_xml("mark_for_capture.xml", values)
+        self._result = self.make_request(self.xml)
         return self.parse_result(self._result)
 
 
@@ -470,8 +470,8 @@ class Reversal(Endpoint):
         }
         if self.amount:
             values['AdjustedAmt'] = self.convert_amount(self.amount)
-        xml = self.parse_xml("reversal.xml", values)
-        self._result = self.make_request(xml)
+        self.xml = self.parse_xml("reversal.xml", values)
+        self._result = self.make_request(self.xml)
         return self.parse_result(self._result)
 
     def void(self):
@@ -483,6 +483,6 @@ class Reversal(Endpoint):
         }
         if self.amount:
             values['AdjustedAmt'] = self.convert_amount(self.amount)
-        xml = self.parse_xml("reversal.xml", values)
-        self._result = self.make_request(xml)
+        self.xml = self.parse_xml("reversal.xml", values)
+        self._result = self.make_request(self.xml)
         return self.parse_result(self._result)
