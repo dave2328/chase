@@ -19,14 +19,14 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.1.1',
+    version='1.1.2',
 
     description='Python Library For Chase Paymentech',
     long_description=long_description,
 
     # The project's main homepage.
     url='https://github.com/dave2328/chase',
-    download_url='https://github.com/dave2328/chase/archive/1.1.1.tar.gz',
+    download_url='https://github.com/dave2328/chase/archive/1.1.2.tar.gz',
 
     # Author details
     author='James Maxwell',
