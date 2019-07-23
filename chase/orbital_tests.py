@@ -1,6 +1,6 @@
 import os
 import collections
-from chase import Profile, Order, MarkForCapture, Reversal
+import Profile, Order, MarkForCapture, Reversal
 
 merchant_id = os.environ.get('TEST_ORBITAL_MERCHANT_ID')
 username = os.environ.get('TEST_ORBITAL_USERNAME')
@@ -845,8 +845,8 @@ def section_g():
 
 def test_section(section):
     results = section()
-    for key, result in results.items():
-        print(parse_result(key, result))
+    for key, result in list(results.items()):
+        print((parse_result(key, result)))
 
 if __name__ == '__main__':
     test_sections = [

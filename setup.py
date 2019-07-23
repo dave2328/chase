@@ -2,7 +2,7 @@
 """
 
 # Always prefer setuptools over distutils
-from setuptools import setup, find_packages
+from setuptools import setup, Extension, find_packages
 # To use a consistent encoding
 from codecs import open
 from os import path
@@ -19,14 +19,14 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.1.2',
+    version='2.0.0',
 
     description='Python Library For Chase Paymentech',
     long_description=long_description,
 
     # The project's main homepage.
     url='https://github.com/dave2328/chase',
-    download_url='https://github.com/dave2328/chase/archive/1.1.2.tar.gz',
+    download_url='https://github.com/dave2328/chase/archive/2.0.0.tar.gz',
 
     # Author details
     author='James Maxwell',

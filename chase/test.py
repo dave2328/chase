@@ -21,7 +21,7 @@ def new_profile():
     profile.email = "test@example.com"
     profile.phone = "9089089080"
     profile.cc_num = "4788250000028291"
-    profile.cc_expiry = "1116"
+    profile.cc_expiry = "1122"
     return profile
 
 
@@ -54,7 +54,7 @@ class TestProfileFunctions(unittest.TestCase):
         self.assertEqual(result['CustomerEmail'], 'test@example.com')
         self.assertEqual(result['CustomerPhone'], '9089089080')
         self.assertEqual(result['CCAccountNum'], '4788250000028291')
-        self.assertEqual(result['CCExpireDate'], '1116')
+        self.assertEqual(result['CCExpireDate'], '1122')
 
     def test_lifecycle(self):
         # test profile creation
@@ -94,7 +94,7 @@ class TestProfileFunctions(unittest.TestCase):
         self.assertEqual(result['CustomerEmail'], 'test@example.com')
         self.assertEqual(result['CustomerPhone'], '9089089080')
         self.assertEqual(result['CCAccountNum'], '4788250000028291')
-        self.assertEqual(result['CCExpireDate'], '1116')
+        self.assertEqual(result['CCExpireDate'], '1122')
 
         # test profile deletion
         profile = new_profile()
@@ -138,7 +138,7 @@ class TestOrderFunctions(unittest.TestCase):
         order.email = "test@example.com"
         order.phone = "9089089080"
         order.cc_num = "4788250000028291"
-        order.cc_expiry = "1116"
+        order.cc_expiry = "1122"
         result = order.charge()
         txRefNum = result['TxRefNum']
         txRefIdx = result['TxRefIdx']

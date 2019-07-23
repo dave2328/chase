@@ -50,8 +50,7 @@ def remove_control_characters(s):
     """
     Remove unicode characters that will endanger xml parsing on Chase's end
     """
-    unis = s.decode('unicode-escape')
-    return "".join(ch for ch in unis if unicodedata.category(ch)[0] != "C")
+    return "".join(ch for ch in s if unicodedata.category(ch)[0] != "C")
 
 
 def sanitize_address_field(s):
@@ -182,7 +181,7 @@ class Endpoint(object):
         values['OrbitalConnectionPassword'] = self.password
         values['BIN'] = self.get_platform_bin()
         values['CustomerBin'] = self.get_platform_bin()
-        for key, value in values.items():
+        for key, value in list(values.items()):
             elem = root.find(".//%s" % key)
             if elem is not None:
                 elem.text = value or default_value
