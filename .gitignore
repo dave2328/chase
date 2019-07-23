@@ -58,3 +58,6 @@ venv/
 
 # vim
 *.swp
+
+# VS Code
+*.vscode
