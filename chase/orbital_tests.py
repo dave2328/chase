@@ -1,6 +1,6 @@
 import os
 import collections
-import Profile, Order, MarkForCapture, Reversal
+from chase import Profile, Order, MarkForCapture, Reversal
 
 merchant_id = os.environ.get('TEST_ORBITAL_MERCHANT_ID')
 username = os.environ.get('TEST_ORBITAL_USERNAME')
@@ -35,12 +35,10 @@ def section_a():
                   zip_code='11111',
                   cvd='111',
                   amount='30.00')
-    result = order.charge()
-    results['1a'] = result
-    print(result)
-    if 'TxRefNum' in result:
-        tx_ref_num = result['TxRefNum']
-        #tx_ref_idx = result['TxRefIdx']
+    results['1a'] = order.charge()
+    if results['1a'] and 'TxRefNum' in results['1a']:
+        tx_ref_num = results['1a']['TxRefNum']
+        #tx_ref_idx = results['1a']['TxRefIdx']
         reversal = Reversal(tx_ref_num=tx_ref_num,
                             tx_ref_idx='0',
                             amount='30',
@@ -69,11 +67,10 @@ def section_a():
                   zip_code='22222',
                   cvd='222',
                   amount='85.00')
-    result = order.charge()
-    results['3a'] = result
-    if 'TxRefNum' in result:
-        tx_ref_num = result['TxRefNum']
-        #tx_ref_idx = result['TxRefIdx']
+    results['3a'] = order.charge()
+    if results['3a'] and 'TxRefNum' in results['3a']:
+        tx_ref_num = results['3a']['TxRefNum']
+        #tx_ref_idx = results['3a']['TxRefIdx']
         capture = MarkForCapture(order_id=order.order_id,
                                  amount='85.00',
                                  tx_ref_num=tx_ref_num)
@@ -88,10 +85,9 @@ def section_a():
                   cc_expiry='1116',
                   zip_code='66666',
                   amount='0.00')
-    result = order.charge()
-    results['4'] = result
-    #tx_ref_num = result['TxRefNum']
-    #tx_ref_idx = result['TxRefIdx']
+    results['4'] = order.charge()
+    #tx_ref_num = results['4']['TxRefNum']
+    #tx_ref_idx = results['4']['TxRefIdx']
 
     order = Order(merchant_id=merchant_id,
                   username=username,
@@ -103,11 +99,10 @@ def section_a():
                   zip_code='11111',
                   cvd='555',
                   amount='125.00')
-    result = order.charge()
-    results['5a'] = result
-    if "TxRefNum" in result:
-        tx_ref_num = result['TxRefNum']
-        #tx_ref_idx = result['TxRefIdx']
+    results['5a'] = order.charge()
+    if results['5a'] and "TxRefNum" in results['5a']:
+        tx_ref_num = results['5a']['TxRefNum']
+        #tx_ref_idx = results['5a']['TxRefIdx']
         capture = MarkForCapture(order_id=order.order_id,
                                  amount='75.00',
                                  tx_ref_num=tx_ref_num)
@@ -122,10 +117,10 @@ def section_a():
                   cc_expiry='1116',
                   zip_code='L6L2X9',
                   amount='41.00')
-    result = results['6a'] = order.charge()
-    if "TxRefNum" in result:
-        tx_ref_num = result['TxRefNum']
-        #tx_ref_idx = result['TxRefIdx']
+    results['6a'] = order.charge()
+    if results['6a'] and "TxRefNum" in results['6a']:
+        tx_ref_num = results['6a']['TxRefNum']
+        #tx_ref_idx = results['6a']['TxRefIdx']
         reversal = Reversal(tx_ref_num=tx_ref_num,
                             tx_ref_idx='0',
                             amount='41.00',
@@ -154,10 +149,10 @@ def section_a():
                   zip_code='L6L2X9',
                   cvd='666',
                   amount='70.00')
-    result = results['8a'] = order.charge()
-    if "TxRefNum" in result:
-        tx_ref_num = result['TxRefNum']
-        #tx_ref_idx = result['TxRefIdx']
+    results['8a'] = order.charge()
+    if results['8a'] and "TxRefNum" in results['8a']:
+        tx_ref_num = results['8a']['TxRefNum']
+        #tx_ref_idx = results['8a']['TxRefIdx']
         capture = MarkForCapture(order_id=order.order_id,
                                  amount='70.00',
                                  tx_ref_num=tx_ref_num)
@@ -173,10 +168,10 @@ def section_a():
                   zip_code='55555',
                   cvd='222',
                   amount='100.00')
-    result = results['9a'] = order.charge()
-    if "TxRefNum" in result:
-        tx_ref_num = result['TxRefNum']
-        #tx_ref_idx = result['TxRefIdx']
+    results['9a'] = order.charge()
+    if results['9a'] and "TxRefNum" in results['9a']:
+        tx_ref_num = results['9a']['TxRefNum']
+        #tx_ref_idx = results['9a']['TxRefIdx']
         capture = MarkForCapture(order_id=order.order_id,
                                  amount='70.00',
                                  tx_ref_num=tx_ref_num)
@@ -202,10 +197,10 @@ def section_a():
                   cc_expiry='1116',
                   zip_code='L6L2X9',
                   amount='1055.00')
-    result = results['11a'] = order.charge()
-    if "TxRefNum" in result:
-        tx_ref_num = result['TxRefNum']
-        #tx_ref_idx = result['TxRefIdx']
+    results['11a'] = order.charge()
+    if results['11a'] and "TxRefNum" in results['11a']:
+        tx_ref_num = results['11a']['TxRefNum']
+        #tx_ref_idx = results['11a']['TxRefIdx']
         capture = MarkForCapture(order_id=order.order_id,
                                 amount='500.00',
                                 tx_ref_num=tx_ref_num)
@@ -220,10 +215,10 @@ def section_a():
                   cc_expiry='1116',
                   zip_code='44444',
                   amount='55.00')
-    result = results['12a'] = order.charge()
-    if "TxRefNum" in result:
-        tx_ref_num = result['TxRefNum']
-        #tx_ref_idx = result['TxRefIdx']
+    results['12a'] = order.charge()
+    if results['12a'] and "TxRefNum" in results['12a']:
+        tx_ref_num = results['12a']['TxRefNum']
+        #tx_ref_idx = results['12a']['TxRefIdx']
         reversal = Reversal(tx_ref_num=tx_ref_num,
                             tx_ref_idx='0',
                             amount='55.00',
@@ -240,10 +235,10 @@ def section_a():
                   zip_code='44444',
                   cvd='2222',
                   amount='75.00')
-    result = results['13a'] = order.charge()
-    if "TxRefNum" in result:
-        tx_ref_num = result['TxRefNum']
-        #tx_ref_idx = result['TxRefIdx']
+    results['13a'] = order.charge()
+    if results['13a'] and "TxRefNum" in results['13a']:
+        tx_ref_num = results['13a']['TxRefNum']
+        #tx_ref_idx = results['13a']['TxRefIdx']
         capture = MarkForCapture(order_id=order.order_id,
                                 amount='75.00',
                                 tx_ref_num=tx_ref_num)
@@ -269,10 +264,10 @@ def section_a():
                   cc_expiry='1116',
                   zip_code='77777',
                   amount='10.00')
-    result = results['15a'] = order.charge()
-    if "TxRefNum" in result:
-        tx_ref_num = result['TxRefNum']
-        #tx_ref_idx = result['TxRefIdx']
+    results['15a'] = order.charge()
+    if results['15a'] and "TxRefNum" in results['15a']:
+        tx_ref_num = results['15a']['TxRefNum']
+        #tx_ref_idx = results['15a']['TxRefIdx']
         capture = MarkForCapture(order_id=order.order_id,
                                 amount='10.00',
                                 tx_ref_num=tx_ref_num)
@@ -287,10 +282,10 @@ def section_a():
                   cc_expiry='1116',
                   zip_code='77777',
                   amount='15.00')
-    result = results['16a'] = order.charge()
-    if "TxRefNum" in result:
-        tx_ref_num = result['TxRefNum']
-        #tx_ref_idx = result['TxRefIdx']
+    results['16a'] = order.charge()
+    if results['16a'] and "TxRefNum" in results['16a']:
+        tx_ref_num = results['16a']['TxRefNum']
+        #tx_ref_idx = results['16a']['TxRefIdx']
         reversal = Reversal(tx_ref_num=tx_ref_num,
                             tx_ref_idx='0',
                             amount='15.00',
@@ -348,7 +343,7 @@ def section_b():
                   zip_code='11111',
                   cvd='111',
                   amount='30.00')
-    results['1a'] = result = order.charge()
+    results['1a'] = order.charge()
     tx_ref_num = result['TxRefNum']
     tx_ref_idx = result['TxRefIdx']
     reversal = Reversal(tx_ref_num=tx_ref_num,
@@ -845,8 +840,9 @@ def section_g():
 
 def test_section(section):
     results = section()
-    for key, result in list(results.items()):
-        print((parse_result(key, result)))
+    for key, result in results.items():
+        print("result: %s" % result)
+        print("parsed result: %s" % parse_result(key, result))
 
 if __name__ == '__main__':
     test_sections = [
